@@ -1,32 +1,89 @@
-# {{ name }}
+# 项目简介
+xxxxx
 
-> {{ description }}
-
-#### Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:9080
-npm run dev
-
-# build electron application for production
-npm run build
-
-{{#testing unit e2e}}
-# run {{#unit}}unit{{/unit}}{{#unit}}{{#e2e}} & {{/e2e}}{{/unit}}{{#e2e}}end-to-end{{/e2e}} tests
-npm test
-
-{{/testing}}
-
-{{#if eslint}}
-# lint all JS/Vue component files in `src/`
-npm run lint
-
-{{/if}}
+# install
+```javascript
+yarn || npm i
 ```
 
----
+# 启动
+```javascript
+npm run  dev
+```
+# 构建
+```javascript
+npm run  build:test
+```
 
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
+# icon使用
+- icon是使用的阿里的[iconfont](https://www.iconfont.cn/)
+- 在上面创建了一个双师客户端的项目,新同学请找肖乐加入此项目
+
+
+## 代码结构
+* code-generator - API代码生成工具
+* src/ - electron代码目录
+* src/main/ - 主进程代码
+* src/renderer/ - 渲染进程代码
+
+## 渲染进程代码结构 src/renderer/
+* assets       - 静态资源
+* components   - 组件库
+* components/ui-share            - UI共享组件(下拉框、toast提示等)
+* components/spark-share      - 业务共享组件(视频播放器、题目展示组件等)
+* js           - 其他(未分类的杂项: API、util、第三方库)
+* js/api            - api调用自动生成的代码
+* js/util           - 工具方法
+* router       - 路由
+* store        - 数据
+* view         - 页面
+
+# view页面组件规范
+- 第一级文件夹-->一级路由
+  - component: 一级页面所有用到的组件(非必须)
+  - XXX: 对应每一个页面
+
+# element UI
+* (官网)[https://element.eleme.cn/#/zh-CN/component/quickstart]
+* `src/renderer/main.js` 按需引入的文件位置 
+* `src/renderer/assets/ElementUI/element-variables.scss` 样式变量重写 
+* `src/renderer/assets/ElementUI/element-override.scss` 样式class覆盖 
+* `select` 组件的想要满足UI的要求,需要对返回的数据进行一次字数截取,已和产品和UI沟通确定
+
+# 答题器通信
+* 参考文档与代码：https://gitlab.xinghuolive.com/edu-teaching/zkxl-receiver-coding
+* nodejs代码：https://gitlab.xinghuolive.com/edu-teaching/zkxl-midware
+* 因上面的代码使用ts写且不符合客户端项目的代码规范,所以修改了一下
+* `src/renderer/js/plugins/zkxl-midware`  答题器通信
+
+# Commit message 提交规范
+- [Commit message 提交规范](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+- webstorm插件，搜索(git commit template) 
+
+# 代码风格
+- 此项目使用`standard`的规范
+- 在开发中强制执行此规范,虽然会一定程度上影响开发效率，但是在质量和效率中,我认为我们应该更关注质量
+- 遇到规范报错问题,请先执行 `npm run lint:fix`,大部分的问题都能被自动修复
+
+# 客户端安装包下载
+- 测试:[http://test-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://test-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
+- 预发布:[http://pre-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://pre-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
+- 生产:[http://download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
+
+# 客户端自动更新机制
+- `package.json` 中 version字段滚动更新,对应的软件包会自动下载更新
+
+# 视频自动下载逻辑
+- [自动下载](https://xiaojiaoyukeji.yuque.com/xiaojiaoxue/bv3xun/uvc49l#vGFe7)
+
+# 视频自动删除逻辑
+- [自动删除](https://xiaojiaoyukeji.yuque.com/xiaojiaoxue/bv3xun/uvc49l#QpEdm)
+
+# 自定义UI组件预览
+- 打开devtools的console输入,`location.href = "http://localhost:9080/#/help"`
+
+# 版本号定义规范
+- A.B.CXXX
+  - A.B是业务版本号
+  - C是hotfix次数  范围:0-9
+  - XXX是开发滚动版本 范围:1-999
