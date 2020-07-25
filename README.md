@@ -56,7 +56,7 @@ This boilerplate was built as a template for [vue-cli](https://github.com/vuejs/
 ```bash
 # Install vue-cli and scaffold boilerplate
 npm install -g vue-cli
-vue init simulatedgreg/electron-vue my-project
+vue init luomu172/electron-vue my-project
 
 # Install dependencies and run your app
 cd my-project
@@ -73,7 +73,7 @@ Make sure to check out [**A Note for Windows Users**](https://simulatedgreg.gitb
 Just point to the `1.0` branch. Please note that electron-vue has officially deprecated the usage of `vue@^1`, so project structure, features, and documentation will reflect those changes ([**legacy documentation**](https://github.com/SimulatedGREG/electron-vue/tree/1.0/docs)).
 
 ```bash
-vue init simulatedgreg/electron-vue#1.0 my-project
+vue init luomu172/electron-vue#1.0 my-project
 ```
 
 ### Next Steps
