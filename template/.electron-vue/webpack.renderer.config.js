@@ -31,7 +31,6 @@ let rendererConfig = {
   ],
   module: {
     rules: [
-{{#if eslint}}
       {
         test: /\.(js|vue)$/,
         enforce: 'pre',
@@ -43,8 +42,6 @@ let rendererConfig = {
           }
         }
       },
-{{/if}}
-    {{#if usesass}}
       {
         test: /\.scss$/,
         use: ['vue-style-loader', 'css-loader', 'sass-loader']
@@ -53,7 +50,6 @@ let rendererConfig = {
         test: /\.sass$/,
         use: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax']
       },
-    {{/if}}
       {
         test: /\.less$/,
         use: ['vue-style-loader', 'css-loader', 'less-loader']
@@ -129,6 +125,18 @@ let rendererConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../src/index.ejs'),
+      templateParameters(compilation, assets, options) {
+        return {
+          compilation: compilation,
+          webpack: compilation.getStats().toJson(),
+          webpackConfig: compilation.options,
+          htmlWebpackPlugin: {
+            files: assets,
+            options: options
+          },
+          process,
+        };
+      },
       minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
@@ -149,7 +157,9 @@ let rendererConfig = {
   resolve: {
     alias: {
       '@': path.join(__dirname, '../src/renderer'),
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'MidWare': '@/js/plugins/zkxl-midware/main/MidWare.js',
+      'bus': '@/js/util/eventBus.js'
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node']
   },
@@ -159,10 +169,12 @@ let rendererConfig = {
 /**
  * Adjust rendererConfig for development settings
  */
+
 if (process.env.NODE_ENV !== 'production') {
   rendererConfig.plugins.push(
     new webpack.DefinePlugin({
-      '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`
+      '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
+      'BUILD_ENV': `"dev"`
     })
   )
 }
@@ -171,6 +183,7 @@ if (process.env.NODE_ENV !== 'production') {
  * Adjust rendererConfig for production settings
  */
 if (process.env.NODE_ENV === 'production') {
+  const BUILD_ENV = process.env.BUILD_ENV
   rendererConfig.devtool = ''
 
   rendererConfig.plugins.push(
@@ -183,7 +196,8 @@ if (process.env.NODE_ENV === 'production') {
       }
     ]),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env.NODE_ENV': '"production"',
+      'BUILD_ENV': `"${BUILD_ENV}"`
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true

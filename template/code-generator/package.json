@@ -1,0 +1,21 @@
+{
+  "name": "code-bus",
+  "version": "1.0.0",
+  "description": "该项目专用于代码生成",
+  "main": "index.js",
+  "scripts": {
+    "bus": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.xinghuolive.com:common-component/code-bus.git"
+  },
+  "author": "Whilconn",
+  "license": "ISC",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.2.0",
+    "qs": "^6.9.3"
+  }
+}

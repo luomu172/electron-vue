@@ -59,6 +59,7 @@ function startRenderer () {
       logStats('Renderer', stats)
     })
 
+    console.log('WebpackDevServer服务地址', path.join(__dirname, '../'))
     const server = new WebpackDevServer(
       compiler,
       {
@@ -127,7 +128,7 @@ function startElectron () {
   }
 
   electronProcess = spawn(electron, args)
-  
+
   electronProcess.stdout.on('data', data => {
     electronLog(data, 'blue')
   })

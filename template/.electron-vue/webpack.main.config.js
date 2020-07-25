@@ -17,7 +17,6 @@ let mainConfig = {
   ],
   module: {
     rules: [
-{{#if eslint}}
       {
         test: /\.(js)$/,
         enforce: 'pre',
@@ -29,7 +28,6 @@ let mainConfig = {
           }
         }
       },
-{{/if}}
       {
         test: /\.js$/,
         use: 'babel-loader',
@@ -62,10 +60,12 @@ let mainConfig = {
 /**
  * Adjust mainConfig for development settings
  */
+
 if (process.env.NODE_ENV !== 'production') {
   mainConfig.plugins.push(
     new webpack.DefinePlugin({
-      '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`
+      '__static': `"${path.join(__dirname, '../static').replace(/\\/g, '\\\\')}"`,
+      'BUILD_ENV': `"dev"`
     })
   )
 }
@@ -74,10 +74,12 @@ if (process.env.NODE_ENV !== 'production') {
  * Adjust mainConfig for production settings
  */
 if (process.env.NODE_ENV === 'production') {
+  const BUILD_ENV = process.env.BUILD_ENV
   mainConfig.plugins.push(
     new MinifyPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env.NODE_ENV': '"production"',
+      'BUILD_ENV': `"${BUILD_ENV}"`
     })
   )
 }
