@@ -1,0 +1,146 @@
+
+
+.dialog-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0);
+
+    &.show-mask {
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-sizing: border-box;
+
+    background:rgba(255,255,255,1);
+    box-shadow:0px 0px 10px 0px rgba(0,0,0,0.08);
+    border-radius:6px;    
+    &.small {
+        width:388px;
+        min-height:130px;
+    }
+
+    &.middle {
+        width:400px;
+        min-height:130px;
+        .head {
+            border-bottom: none;
+            top: 21px;
+            .title {
+                margin-left: 20px;
+            }
+            .close {
+                right: 16px;
+                top: -3px;
+            }
+        }
+
+        .content-area {
+            width: 100%;
+        }
+
+        .btn-panel {
+            width: 100%;
+            margin-top: 8px;
+        }
+    }
+
+    &.big {
+        width: 960px;
+        height: 588px;
+
+        .head {
+            height: 48px;  
+            line-height: 48px;  
+            font-size: 16px;      
+        }
+
+        .content-area {
+            width:896px;
+            height:431px;
+            margin: 24px auto;
+        }
+        .expend-to-btn-panel.content-area {
+            height: 491px;
+        }
+    }
+
+    &.ultra {
+        width:1068px;
+        height:716px;
+
+        .head {
+            height: 64px;   
+            line-height: 64px;   
+            font-size: 18px;           
+        }
+
+        .content-area {
+            width:1004px;
+            height:543px;
+            margin: 24px auto;
+        }
+        .expend-to-btn-panel.content-area {
+            height: 603px;
+        }
+    }
+
+    .head {
+        position: relative;
+        box-sizing: border-box;
+        border-bottom: 1px solid #EDEDED;
+        .title {
+            width: 184px;
+            font-size:16px;
+            font-family:MicrosoftYaHei;
+            color:rgba(54,54,54,1);
+            margin-left: 24px;
+        }
+        .close {
+            position: absolute;
+            top: 0;
+            right: 32px;
+        }
+    }
+}
+
+.content-wrapper {
+    width: 100%;
+    overflow: auto;
+}
+
+.content-area {
+
+    width: calc(100% - 64px);
+    margin: 0 auto;
+
+    margin-top: 24px;
+    text-align: left;
+    font-size:14px;
+    font-family:MicrosoftYaHei;
+    color:rgba(54,54,54,1);
+    line-height:22px;
+}
+
+.btn-panel {
+    width: calc(100% - 64px);
+    margin: 0 auto;
+
+    margin-top: 24px;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;    
+
+    .short-btn {
+        margin-left: 16px;
+    }
+}

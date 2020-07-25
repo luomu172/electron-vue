@@ -36,6 +36,13 @@ module.exports = {
     'import/newline-after-import': 0,
     'no-multi-assign': 0,
     {{/if_eq}}
+    // allow paren-less arrow functions
+    "indent": ["error", 2],
+    'no-undef': 0,
+    'no-new': 0,
+    'semi': "off",
+    'object-curly-spacing': ["error", "always"],
+    'no-new-wrappers': 0
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

@@ -1,0 +1,36 @@
+.net-error{
+    width: 100%;
+    height: calc(100% - 66px);
+    border-top: 1px solid #EDEDED;
+    position: fixed;
+    top: 66px;
+    z-index: 9999;
+    background-color: white;
+}
+
+.no-error-img {
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 213px;
+    height: 213px;
+}
+
+.tips {
+    position: absolute;
+    top: 381px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size:14px;
+    font-family:MicrosoftYaHei;
+    color:rgba(153,153,153,1);
+    line-height:14px; 
+}
+
+.refresh {
+    position: absolute;
+    top: 427px;
+    left: 50%;
+    transform: translateX(-50%);
+}
