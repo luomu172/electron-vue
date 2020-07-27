@@ -42,7 +42,7 @@ module.exports = {
     'no-new': 0,
     'semi': "off",
     'object-curly-spacing': ["error", "always"],
-    'no-new-wrappers': 0
+    'no-new-wrappers': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }

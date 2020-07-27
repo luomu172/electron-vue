@@ -17,7 +17,7 @@ npm run  build:test
 
 # icon使用
 - icon是使用的阿里的[iconfont](https://www.iconfont.cn/)
-- 在上面创建了一个双师客户端的项目,新同学请找肖乐加入此项目
+- 新项目请找卫康创建
 
 
 ## 代码结构
@@ -50,11 +50,6 @@ npm run  build:test
 * `src/renderer/assets/ElementUI/element-override.scss` 样式class覆盖 
 * `select` 组件的想要满足UI的要求,需要对返回的数据进行一次字数截取,已和产品和UI沟通确定
 
-# 答题器通信
-* 参考文档与代码：https://gitlab.xinghuolive.com/edu-teaching/zkxl-receiver-coding
-* nodejs代码：https://gitlab.xinghuolive.com/edu-teaching/zkxl-midware
-* 因上面的代码使用ts写且不符合客户端项目的代码规范,所以修改了一下
-* `src/renderer/js/plugins/zkxl-midware`  答题器通信
 
 # Commit message 提交规范
 - [Commit message 提交规范](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
@@ -65,7 +60,7 @@ npm run  build:test
 - 在开发中强制执行此规范,虽然会一定程度上影响开发效率，但是在质量和效率中,我认为我们应该更关注质量
 - 遇到规范报错问题,请先执行 `npm run lint:fix`,大部分的问题都能被自动修复
 
-# 客户端安装包下载
+# 客户端安装包下载(新项目自行修改地址)
 - 测试:[http://test-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://test-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
 - 预发布:[http://pre-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://pre-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
 - 生产:[http://download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
@@ -73,14 +68,6 @@ npm run  build:test
 # 客户端自动更新机制
 - `package.json` 中 version字段滚动更新,对应的软件包会自动下载更新
 
-# 视频自动下载逻辑
-- [自动下载](https://xiaojiaoyukeji.yuque.com/xiaojiaoxue/bv3xun/uvc49l#vGFe7)
-
-# 视频自动删除逻辑
-- [自动删除](https://xiaojiaoyukeji.yuque.com/xiaojiaoxue/bv3xun/uvc49l#QpEdm)
-
-# 自定义UI组件预览
-- 打开devtools的console输入,`location.href = "http://localhost:9080/#/help"`
 
 # 版本号定义规范
 - A.B.CXXX

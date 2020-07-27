@@ -100,7 +100,7 @@ export class HttpService {
 
   static getOrigin (domain) {
     console.log('BUILD_ENV=', BUILD_ENV);
-    const reg = new RegExp(/\/\/test([-\.])/);
+    const reg = new RegExp(/\/\/test([-.])/);
     if (BUILD_ENV.trim() === 'test') {
       return domain.replace(reg, '//test$1');
     } else if (BUILD_ENV.trim() === 'dev') {
