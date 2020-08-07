@@ -61,9 +61,9 @@ npm run  build:test
 - 遇到规范报错问题,请先执行 `npm run lint:fix`,大部分的问题都能被自动修复
 
 # 客户端安装包下载(新项目自行修改地址)
-- 测试:[http://test-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://test-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
-- 预发布:[http://pre-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://pre-download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
-- 生产:[http://download-ss-client.xiaojiaoyu100.com/XHClassroom.exe](http://download-ss-client.xiaojiaoyu100.com/XHClassroom.exe)
+- 测试: 下载地址
+- 预发布: 下载地址
+- 生产:  下载地址
 
 # 客户端自动更新机制
 - `package.json` 中 version字段滚动更新,对应的软件包会自动下载更新
