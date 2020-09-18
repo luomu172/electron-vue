@@ -6,12 +6,11 @@
  */
 /**
  * @description
- * @type {{
+ * @type
  * swaggerUrl: string,  swagger地址
  * modules: string[],   模块名称
  * template: string,    模版文件
  * dist: string         dist路径,相对于index.js的路径
- * }}
  */
 const swagger = {
   url: '',
