@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { extendConsole } from './js/util/log';
 {{#isEnabled plugins 'axios'}}
 import axios from 'axios'
 {{/isEnabled}}
@@ -11,6 +12,7 @@ import router from './router'
 import store from './store'
 {{/isEnabled}}
 
+  extendConsole();
 {{#isEnabled plugins 'vue-electron'}}
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 {{/isEnabled}}
