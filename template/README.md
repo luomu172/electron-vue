@@ -74,3 +74,6 @@ npm run  build:test
   - A.B是业务版本号
   - C是hotfix次数  范围:0-9
   - XXX是开发滚动版本 范围:1-999
+
+# 禁止项
+- 禁止后续在项目中使用 `window.postMessage`通信,会造成日志报错。暂时还未找到原因
